@@ -1,0 +1,469 @@
+/* =========================================================
+   TRACY PORTFOLIO
+   LAYOUT SYSTEM
+   Editorial Magazine Structure
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   PAGE FRAME
+   --------------------------------------------------------- */
+
+.site-shell {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+.section {
+    width: 100%;
+    padding: 96px 0;
+}
+
+.section-inner {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
+
+.site-header {
+    width: 100%;
+    padding: 24px 0;
+}
+
+.header-inner {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* ---------------------------------------------------------
+   NAVIGATION
+   --------------------------------------------------------- */
+
+.main-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+
+/* ---------------------------------------------------------
+   HERO
+   --------------------------------------------------------- */
+
+.hero {
+    width: 100%;
+    min-height: 680px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 72px;
+    padding: 80px 0 100px;
+}
+
+.hero-content {
+    max-width: 620px;
+}
+
+.hero-media {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* ---------------------------------------------------------
+   EDITORIAL INTRO
+   --------------------------------------------------------- */
+
+.editorial-intro {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 72px;
+    align-items: start;
+}
+
+.editorial-intro__visual {
+    width: 100%;
+}
+
+.editorial-intro__content {
+    max-width: 680px;
+}
+
+
+/* ---------------------------------------------------------
+   TWO COLUMN EDITORIAL
+   --------------------------------------------------------- */
+
+.editorial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+}
+
+.editorial-grid--wide-left {
+    grid-template-columns: 1.2fr 0.8fr;
+}
+
+.editorial-grid--wide-right {
+    grid-template-columns: 0.8fr 1.2fr;
+}
+
+
+/* ---------------------------------------------------------
+   THREE COLUMN EDITORIAL
+   --------------------------------------------------------- */
+
+.editorial-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    align-items: start;
+}
+
+
+/* ---------------------------------------------------------
+   WORK / PROJECTS
+   --------------------------------------------------------- */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px;
+}
+
+.project-card {
+    width: 100%;
+}
+
+.project-card__image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.project-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project-card__content {
+    padding-top: 20px;
+}
+
+
+/* ---------------------------------------------------------
+   FEATURED PROJECT
+   --------------------------------------------------------- */
+
+.featured-project {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.featured-project__image {
+    width: 100%;
+}
+
+.featured-project__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.featured-project__content {
+    max-width: 520px;
+}
+
+
+/* ---------------------------------------------------------
+   EXPERIENCE
+   --------------------------------------------------------- */
+
+.experience-layout {
+    display: grid;
+    grid-template-columns: 0.65fr 1.35fr;
+    gap: 72px;
+    align-items: start;
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.experience-item {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 32px;
+    padding: 32px 0;
+    border-top: 1px solid currentColor;
+}
+
+.experience-item:last-child {
+    border-bottom: 1px solid currentColor;
+}
+
+
+/* ---------------------------------------------------------
+   CREDENTIALS
+   --------------------------------------------------------- */
+
+.credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.credential-card {
+    width: 100%;
+}
+
+.credential-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* ---------------------------------------------------------
+   SKILLS
+   --------------------------------------------------------- */
+
+.skills-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 72px;
+    align-items: start;
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 32px;
+}
+
+
+/* ---------------------------------------------------------
+   ABOUT
+   --------------------------------------------------------- */
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 0.75fr 1.25fr;
+    gap: 72px;
+    align-items: start;
+}
+
+.about-portrait {
+    width: 100%;
+    max-width: 420px;
+}
+
+.about-portrait img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-content {
+    max-width: 680px;
+}
+
+
+/* ---------------------------------------------------------
+   CREDIBILITY STRIP
+   --------------------------------------------------------- */
+
+.credibility-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+}
+
+.credibility-item {
+    padding: 28px 20px;
+    text-align: center;
+}
+
+.credibility-item + .credibility-item {
+    border-left: 1px solid currentColor;
+}
+
+
+/* ---------------------------------------------------------
+   QUOTE / EDITORIAL STATEMENT
+   --------------------------------------------------------- */
+
+.editorial-quote {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 72px 24px;
+}
+
+.editorial-quote p {
+    margin: 0;
+}
+
+
+/* ---------------------------------------------------------
+   CONTACT
+   --------------------------------------------------------- */
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 72px;
+    align-items: start;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form {
+    width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+
+.site-footer {
+    width: 100%;
+    padding: 64px 0 40px;
+}
+
+.footer-inner {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: end;
+}
+
+
+/* ---------------------------------------------------------
+   SECTION DIVIDERS
+   --------------------------------------------------------- */
+
+.section-rule {
+    width: 100%;
+    height: 1px;
+    margin: 0;
+    background: currentColor;
+    opacity: 0.35;
+}
+
+.editorial-rule {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.editorial-rule::before,
+.editorial-rule::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: currentColor;
+    opacity: 0.35;
+}
+
+
+/* ---------------------------------------------------------
+   IMAGE GROUPS
+   --------------------------------------------------------- */
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.image-grid--three {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* ---------------------------------------------------------
+   ARCHIVE / MASONRY FEEL
+   --------------------------------------------------------- */
+
+.archive-grid {
+    columns: 3;
+    column-gap: 24px;
+}
+
+.archive-item {
+    break-inside: avoid;
+    margin-bottom: 24px;
+}
+
+.archive-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* ---------------------------------------------------------
+   SPACING UTILITIES
+   --------------------------------------------------------- */
+
+.space-small {
+    margin-bottom: 24px;
+}
+
+.space-medium {
+    margin-bottom: 48px;
+}
+
+.space-large {
+    margin-bottom: 80px;
+}
+
+.space-section {
+    margin-bottom: 120px;
+}

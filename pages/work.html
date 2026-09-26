@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tracy | The Archive</title>
+<meta name="description" content="Tracy's curated work archive. Selected creative, content, social, video, digital and operations outputs, including client work where appropriate for public viewing.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f7f4ee;
+  --paper-light:#fcfaf6;
+  --paper-warm:#eee6dc;
+  --brown:#493737;
+  --brown-soft:#705d5a;
+  --blue:#536b87;
+  --blue-light:#e1e8ec;
+  --pink:#a56f72;
+  --pink-light:#eee0df;
+  --taupe:#d7ccc2;
+  --gold:#b39158;
+  --gold-light:#d8c095;
+  --ink:#302528;
+  --white:#fffdfa;
+  --line:rgba(73,55,55,.16);
+  --shadow:0 24px 70px rgba(73,55,55,.10);
+  --max:1280px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--brown);
+  font-family:Montserrat,Arial,sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+body.modal-open{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+img{max-width:100%;display:block}
+
+::selection{background:var(--pink);color:var(--white)}
+
+.progress{
+  position:fixed;left:0;top:0;height:3px;width:0;
+  background:var(--gold);z-index:9999;
+}
+
+.archive-bar{
+  height:32px;background:#2c2224;color:#fff;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 46px;font:600 9px/1 Montserrat,sans-serif;
+  letter-spacing:.18em;text-transform:uppercase;
+}
+.archive-bar span:last-child{opacity:.7}
+
+.header{
+  min-height:94px;border-bottom:1px solid var(--line);
+  background:rgba(252,250,246,.94);backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 7vw;position:sticky;top:0;z-index:500;
+}
+.brand-lockup{display:flex;align-items:center;gap:19px}
+.emblem{
+  width:38px;height:38px;object-fit:contain;opacity:.78;
+}
+.brand-name{
+  font:500 24px/1 "Playfair Display",serif;
+  letter-spacing:.18em;
+}
+.brand-sub{
+  margin-top:7px;font:600 8px/1 Montserrat,sans-serif;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--brown-soft);
+}
+.main-nav{display:flex;align-items:center;gap:27px}
+.main-nav a{
+  font:600 9px/1 Montserrat,sans-serif;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--brown-soft);position:relative;padding:10px 0;
+}
+.main-nav a:hover{color:var(--brown)}
+.main-nav a.active:after{
+  content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:var(--gold);
+}
+.nav-divider{height:23px;width:1px;background:var(--line)}
+
+.container{width:min(var(--max),86vw);margin:0 auto}
+
+.role-switcher{
+  background:var(--white);border-bottom:1px solid var(--line);
+  display:flex;justify-content:center;overflow:auto;
+}
+.role-link{
+  flex:0 0 auto;min-height:59px;padding:0 25px;
+  border-right:1px solid var(--line);
+  display:flex;align-items:center;gap:10px;
+  font:600 9px/1.25 Montserrat,sans-serif;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--brown-soft);
+  transition:.25s ease;
+}
+.role-link:first-child{border-left:1px solid var(--line)}
+.role-link .role-num{color:var(--gold);font-family:"DM Mono",monospace;font-size:8px}
+.role-link:hover{background:var(--paper-warm);color:var(--brown)}
+.role-link.active{background:var(--brown);color:var(--white)}
+.role-link.active .role-num{color:var(--gold-light)}
+
+.eyebrow{
+  display:flex;align-items:center;gap:15px;
+  color:var(--blue);font:600 9px/1 Montserrat,sans-serif;
+  letter-spacing:.22em;text-transform:uppercase;
+}
+.eyebrow:after{content:"";display:block;width:55px;height:1px;background:var(--gold)}
+
+.hero{
+  min-height:690px;position:relative;display:flex;align-items:center;
+  overflow:hidden;border-bottom:1px solid var(--line);
+}
+.hero:before{
+  content:"";position:absolute;width:650px;height:650px;border:1px solid rgba(83,107,135,.12);
+  border-radius:50%;right:-170px;top:20px;
+}
+.hero:after{
+  content:"";position:absolute;width:490px;height:490px;border:1px solid rgba(179,145,88,.20);
+  border-radius:50%;right:-30px;top:105px;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:8vw;align-items:center;
+  position:relative;z-index:2;
+}
+.hero-copy{padding:85px 0}
+.hero-title{
+  margin-top:30px;max-width:780px;
+  font:500 clamp(62px,7vw,108px)/.88 "Playfair Display",serif;
+  letter-spacing:-.045em;
+}
+.hero-title .blue{color:var(--blue)}
+.hero-title .pink{color:var(--pink);font-style:italic}
+.hero-intro{
+  max-width:680px;margin-top:36px;
+  font:400 16px/1.9 Montserrat,sans-serif;color:var(--brown-soft);
+}
+.hero-note{
+  margin-top:28px;display:flex;align-items:center;gap:16px;
+  font:500 9px/1.5 "DM Mono",monospace;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--brown-soft);
+}
+.hero-note i{display:block;width:30px;height:1px;background:var(--gold)}
+
+.hero-art{position:relative;min-height:510px;display:flex;align-items:center;justify-content:center}
+.archive-object{
+  width:min(420px,90%);aspect-ratio:.72;
+  background:var(--white);border:1px solid rgba(73,55,55,.14);
+  box-shadow:var(--shadow);transform:rotate(2deg);position:relative;
+  padding:42px 34px;transition:transform .7s cubic-bezier(.2,.8,.2,1);
+}
+.archive-object:hover{transform:rotate(-1deg) translateY(-8px)}
+.archive-object:before{
+  content:"";position:absolute;inset:14px;border:1px solid rgba(179,145,88,.30);
+}
+.object-top,.object-bottom{
+  position:relative;z-index:2;display:flex;justify-content:space-between;
+  font:500 8px/1.3 "DM Mono",monospace;letter-spacing:.08em;text-transform:uppercase;
+}
+.object-center{
+  position:absolute;left:34px;right:34px;top:50%;
+  transform:translateY(-50%);z-index:2;
+}
+.object-center h2{
+  font:500 clamp(43px,4vw,66px)/.92 "Playfair Display",serif;
+  letter-spacing:-.04em;
+}
+.object-center h2 span{display:block;color:var(--gold)}
+.object-stamp{
+  margin-top:30px;display:inline-block;border:1px solid var(--pink);
+  padding:8px 12px;color:var(--pink);
+  font:600 8px/1 Montserrat,sans-serif;letter-spacing:.12em;text-transform:uppercase;
+}
+.object-orbit{
+  position:absolute;width:100px;height:100px;border:1px solid var(--blue);
+  border-radius:50%;right:30px;bottom:30px;
+}
+.object-orbit:after{
+  content:"↗";position:absolute;inset:22px;border:1px solid var(--blue);
+  border-radius:50%;display:grid;place-items:center;font:16px/1 "DM Mono",monospace;color:var(--blue);
+}
+
+.section{padding:115px 0}
+.section-light{background:var(--paper-light)}
+.section-warm{background:var(--paper-warm)}
+.section-blue{background:var(--blue);color:var(--white)}
+.section-pink{background:var(--pink);color:var(--white)}
+
+.intro-grid{
+  display:grid;grid-template-columns:.8fr 1.2fr;gap:9vw;align-items:start;
+}
+.section-kicker{
+  font:500 13px/1.4 "DM Mono",monospace;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);
+}
+.section-title{
+  margin-top:18px;font:500 clamp(45px,5vw,76px)/.96 "Playfair Display",serif;
+  letter-spacing:-.04em;
+}
+.section-copy{
+  max-width:700px;font:400 16px/1.95 Montserrat,sans-serif;color:var(--brown-soft);
+}
+.section-blue .section-copy,.section-pink .section-copy{color:rgba(255,253,250,.80)}
+.section-copy + .section-copy{margin-top:22px}
+
+.archive-principles{
+  margin-top:55px;display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.principle{padding:30px 25px;border-right:1px solid var(--line)}
+.principle:last-child{border-right:0}
+.principle .num{font:500 11px/1 "DM Mono",monospace;color:var(--gold)}
+.principle h3{margin-top:20px;font:500 25px/1.05 "Playfair Display",serif}
+.principle p{margin-top:12px;color:var(--brown-soft);font-size:13px;line-height:1.75}
+
+.filter-section{padding:70px 0 30px;background:var(--paper-light);border-top:1px solid var(--line)}
+.filter-head{display:flex;justify-content:space-between;align-items:end;gap:30px}
+.filter-title{font:500 clamp(40px,4vw,62px)/1 "Playfair Display",serif;letter-spacing:-.04em}
+.filter-meta{font:500 10px/1.5 "DM Mono",monospace;color:var(--brown-soft);text-align:right}
+.filters{
+  display:flex;gap:9px;flex-wrap:wrap;margin-top:40px;
+}
+.filter-btn{
+  border:1px solid var(--line);background:transparent;padding:11px 16px;
+  cursor:pointer;font:600 9px/1 Montserrat,sans-serif;
+  letter-spacing:.10em;text-transform:uppercase;transition:.22s ease;
+}
+.filter-btn:hover{border-color:var(--gold);background:var(--paper-warm)}
+.filter-btn.active{background:var(--brown);border-color:var(--brown);color:var(--white)}
+
+.archive-grid-section{padding:45px 0 120px;background:var(--paper-light)}
+.project-grid{
+  display:grid;grid-template-columns:repeat(12,1fr);gap:22px;
+}
+.project-card{
+  grid-column:span 4;position:relative;cursor:pointer;
+  border:1px solid var(--line);background:var(--white);
+  transition:transform .35s ease,box-shadow .35s ease;
+  overflow:hidden;
+}
+.project-card:nth-child(3n+2){transform:translateY(32px)}
+.project-card:hover{transform:translateY(-8px)!important;box-shadow:var(--shadow)}
+.project-card.hidden{display:none}
+.project-visual{
+  aspect-ratio:1.15;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--paper-warm),var(--blue-light));
+}
+.project-card:nth-child(3n+2) .project-visual{background:linear-gradient(135deg,var(--pink-light),var(--paper-warm))}
+.project-card:nth-child(3n) .project-visual{background:linear-gradient(135deg,var(--blue-light),var(--paper))}
+.visual-art{
+  position:absolute;inset:13%;border:1px solid rgba(73,55,55,.20);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:20px;transform:rotate(-2deg);
+}
+.visual-art:before{
+  content:"";position:absolute;width:65%;height:65%;border:1px solid rgba(179,145,88,.38);border-radius:50%;
+}
+.visual-word{
+  position:relative;z-index:2;font:500 clamp(26px,3vw,45px)/.9 "Playfair Display",serif;
+  letter-spacing:-.04em;color:var(--brown);
+}
+.visual-word em{display:block;color:var(--pink)}
+.project-label{
+  position:absolute;top:17px;left:17px;z-index:3;
+  background:var(--white);padding:8px 10px;
+  font:600 8px/1 Montserrat,sans-serif;letter-spacing:.10em;text-transform:uppercase;
+}
+.project-index{
+  position:absolute;right:17px;top:17px;z-index:3;
+  font:500 9px/1 "DM Mono",monospace;color:var(--brown-soft);
+}
+.project-info{padding:25px 25px 28px}
+.project-meta{
+  display:flex;justify-content:space-between;gap:10px;
+  font:500 8px/1.3 "DM Mono",monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--brown-soft);
+}
+.project-info h3{
+  margin-top:16px;font:500 31px/1 "Playfair Display",serif;letter-spacing:-.025em;
+}
+.project-info p{margin-top:12px;color:var(--brown-soft);font-size:12px;line-height:1.75}
+.project-open{
+  margin-top:21px;display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid var(--line);padding-top:17px;
+  font:600 8px/1 Montserrat,sans-serif;letter-spacing:.11em;text-transform:uppercase;
+}
+.project-open span:last-child{font:16px/1 "DM Mono",monospace;color:var(--gold)}
+
+.proof-section{padding:125px 0;background:var(--brown);color:var(--white);position:relative;overflow:hidden}
+.proof-section:after{
+  content:"ARCHIVE";position:absolute;right:-40px;bottom:-70px;
+  font:500 190px/.8 "Playfair Display",serif;color:rgba(255,255,255,.035);
+}
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:9vw;position:relative;z-index:2}
+.proof-title{font:500 clamp(50px,5vw,78px)/.94 "Playfair Display",serif;letter-spacing:-.04em}
+.proof-title span{color:var(--gold-light);font-style:italic}
+.proof-copy{margin-top:28px;max-width:600px;color:rgba(255,255,255,.72);font-size:14px;line-height:1.9}
+.proof-list{border-top:1px solid rgba(255,255,255,.18)}
+.proof-row{
+  padding:22px 0;border-bottom:1px solid rgba(255,255,255,.18);
+  display:grid;grid-template-columns:48px 1fr auto;gap:20px;align-items:start;
+}
+.proof-row .num{font:500 10px/1 "DM Mono",monospace;color:var(--gold-light)}
+.proof-row strong{font:500 22px/1.1 "Playfair Display",serif}
+.proof-row span{font:400 10px/1.5 Montserrat,sans-serif;color:rgba(255,255,255,.55);display:block;margin-top:6px}
+.proof-row i{font:18px/1 "DM Mono",monospace;color:var(--gold-light);font-style:normal}
+
+.privacy{
+  padding:110px 0;background:var(--paper);
+}
+.privacy-grid{display:grid;grid-template-columns:1fr 1fr;gap:9vw;align-items:start}
+.privacy-title{font:500 clamp(46px,5vw,72px)/.96 "Playfair Display",serif;letter-spacing:-.04em}
+.privacy-title span{color:var(--pink);font-style:italic}
+.privacy-copy{font-size:14px;line-height:1.9;color:var(--brown-soft)}
+.privacy-note{
+  margin-top:30px;padding:24px;border-left:2px solid var(--gold);
+  background:var(--paper-light);font:500 11px/1.8 "DM Mono",monospace;color:var(--brown-soft);
+}
+.privacy-checks{margin-top:35px;display:grid;gap:12px}
+.check{
+  display:flex;gap:13px;align-items:flex-start;
+  font-size:11px;color:var(--brown-soft);
+}
+.check b{
+  flex:0 0 18px;width:18px;height:18px;border:1px solid var(--gold);
+  display:grid;place-items:center;font:10px/1 "DM Mono",monospace;color:var(--gold);
+}
+
+.role-return{padding:105px 0;background:var(--paper-warm)}
+.role-return-head{display:flex;justify-content:space-between;align-items:end;gap:40px}
+.role-return-title{font:500 clamp(46px,5vw,70px)/.95 "Playfair Display",serif;letter-spacing:-.04em}
+.role-return-copy{max-width:480px;color:var(--brown-soft);font-size:13px;line-height:1.8}
+.role-grid{margin-top:45px;display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.role-card{
+  min-height:150px;padding:22px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:flex;flex-direction:column;justify-content:space-between;
+  transition:.25s ease;background:rgba(255,255,255,.25);
+}
+.role-card:hover{background:var(--white);transform:translateY(-5px)}
+.role-card .num{font:500 9px/1 "DM Mono",monospace;color:var(--gold)}
+.role-card strong{font:500 18px/1.05 "Playfair Display",serif}
+.role-card .arrow{align-self:flex-end;font:15px/1 "DM Mono",monospace;color:var(--blue)}
+
+.cta{
+  padding:130px 0;background:var(--blue);color:var(--white);text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta:before,.cta:after{
+  content:"";position:absolute;border:1px solid rgba(255,255,255,.13);border-radius:50%;
+}
+.cta:before{width:500px;height:500px;left:-190px;top:-180px}
+.cta:after{width:700px;height:700px;right:-300px;bottom:-500px}
+.cta-inner{position:relative;z-index:2}
+.cta .eyebrow{justify-content:center;color:var(--gold-light)}
+.cta .eyebrow:after{display:none}
+.cta-title{margin:25px auto 0;max-width:900px;font:500 clamp(53px,6vw,88px)/.92 "Playfair Display",serif;letter-spacing:-.045em}
+.cta-copy{max-width:650px;margin:28px auto 0;color:rgba(255,255,255,.72);font-size:14px;line-height:1.85}
+.btn-row{margin-top:35px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:47px;padding:0 22px;border:1px solid rgba(255,255,255,.35);
+  font:600 9px/1 Montserrat,sans-serif;letter-spacing:.11em;text-transform:uppercase;
+  transition:.25s ease;
+}
+.btn-primary{background:var(--white);color:var(--brown);border-color:var(--white)}
+.btn-primary:hover{background:var(--gold-light);border-color:var(--gold-light)}
+.btn-secondary:hover{background:rgba(255,255,255,.1);border-color:var(--white)}
+
+.footer{
+  padding:38px 7vw;background:#2c2224;color:rgba(255,255,255,.68);
+  display:flex;justify-content:space-between;gap:30px;align-items:center;
+  font:500 8px/1.4 "DM Mono",monospace;letter-spacing:.08em;text-transform:uppercase;
+}
+.footer strong{color:var(--white);font-weight:500}
+.footer a:hover{color:var(--white)}
+
+.modal{
+  position:fixed;inset:0;background:rgba(38,28,30,.72);
+  backdrop-filter:blur(14px);z-index:1000;display:none;
+  padding:40px;overflow:auto;
+}
+.modal.open{display:flex;align-items:center;justify-content:center}
+.modal-card{
+  width:min(1100px,100%);max-height:92vh;overflow:auto;
+  background:var(--paper-light);box-shadow:0 40px 100px rgba(0,0,0,.25);
+  position:relative;
+}
+.modal-close{
+  position:absolute;right:18px;top:18px;width:40px;height:40px;
+  border:1px solid var(--line);background:var(--white);cursor:pointer;
+  z-index:4;font:18px/1 "DM Mono",monospace;
+}
+.modal-hero{
+  min-height:420px;background:var(--paper-warm);position:relative;
+  display:grid;place-items:center;overflow:hidden;
+}
+.modal-hero:before{
+  content:"";position:absolute;width:500px;height:500px;border:1px solid rgba(83,107,135,.17);border-radius:50%;
+}
+.modal-hero-word{
+  position:relative;z-index:2;text-align:center;
+  font:500 clamp(55px,8vw,105px)/.84 "Playfair Display",serif;letter-spacing:-.05em;
+}
+.modal-hero-word em{color:var(--pink);font-style:italic}
+.modal-body{padding:48px 55px 60px}
+.modal-topline{
+  display:flex;justify-content:space-between;gap:20px;
+  font:500 9px/1.4 "DM Mono",monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--brown-soft);
+}
+.modal-title{margin-top:18px;font:500 clamp(42px,5vw,68px)/.95 "Playfair Display",serif;letter-spacing:-.04em}
+.modal-desc{max-width:760px;margin-top:22px;color:var(--brown-soft);font-size:14px;line-height:1.9}
+.modal-columns{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:50px;border-top:1px solid var(--line);padding-top:30px}
+.modal-columns h4{font:600 8px/1 Montserrat,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.modal-columns p{margin-top:10px;color:var(--brown-soft);font-size:12px;line-height:1.8}
+.modal-tags{margin-top:32px;display:flex;flex-wrap:wrap;gap:7px}
+.tag{
+  border:1px solid var(--line);padding:8px 10px;
+  font:600 8px/1 Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;
+}
+.modal-disclaimer{
+  margin-top:30px;padding:20px;background:var(--paper-warm);
+  font:500 9px/1.7 "DM Mono",monospace;color:var(--brown-soft);
+}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:1050px){
+  .main-nav{gap:16px}
+  .header{padding:0 5vw}
+  .archive-bar{padding:0 25px}
+  .role-link{padding:0 17px}
+  .hero-grid{gap:4vw}
+  .project-card{grid-column:span 6}
+  .project-card:nth-child(3n+2){transform:none}
+  .role-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:780px){
+  .archive-bar{padding:0 17px;font-size:7px}
+  .archive-bar span:last-child{display:none}
+  .header{min-height:82px;padding:0 20px}
+  .brand-sub{font-size:7px}
+  .main-nav{display:none}
+  .role-switcher{justify-content:flex-start}
+  .role-link{min-height:52px;padding:0 16px;font-size:8px}
+  .hero{min-height:auto}
+  .hero-grid{grid-template-columns:1fr;gap:20px}
+  .hero-copy{padding:75px 0 30px}
+  .hero-title{font-size:clamp(55px,14vw,84px);max-width:650px}
+  .hero-intro{font-size:13px;line-height:1.8}
+  .hero-art{min-height:460px;padding:15px 0 75px}
+  .archive-object{width:min(360px,85%);padding:35px 28px}
+  .object-center{left:28px;right:28px}
+  .object-center h2{font-size:52px}
+  .section{padding:85px 0}
+  .intro-grid,.proof-grid,.privacy-grid{grid-template-columns:1fr;gap:45px}
+  .archive-principles{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid var(--line)}
+  .principle:last-child{border-bottom:0}
+  .filter-head,.role-return-head{display:block}
+  .filter-meta{margin-top:15px;text-align:left}
+  .project-grid{display:grid;grid-template-columns:1fr}
+  .project-card{grid-column:span 1}
+  .project-card:nth-child(3n+2){transform:none}
+  .archive-grid-section{padding-bottom:85px}
+  .role-grid{grid-template-columns:repeat(2,1fr)}
+  .role-card{min-height:135px}
+  .modal{padding:15px}
+  .modal-body{padding:35px 25px 45px}
+  .modal-columns{grid-template-columns:1fr;gap:25px}
+  .modal-hero{min-height:300px}
+  .modal-hero-word{font-size:58px}
+  .footer{padding:30px 20px;display:block}
+  .footer > * + *{margin-top:12px}
+}
+@media(max-width:460px){
+  .hero-title{font-size:52px}
+  .role-grid{grid-template-columns:1fr}
+  .role-card{min-height:115px}
+  .btn{width:100%}
+  .btn-row{display:grid}
+  .archive-object{width:92%}
+}
+</style>
+</head>
+
+<body>
+<div class="progress" id="progress"></div>
+
+<div class="archive-bar">
+  <span>TRACY / PERSONAL WORK ARCHIVE</span>
+  <span>SELECTED OUTPUTS / PUBLIC-FACING EDITION</span>
+</div>
+
+<header class="header">
+  <a href="../index.html" class="brand-lockup" aria-label="Return to Tracy home">
+    <img class="emblem" src="../assets/images/primary-emblem.png" alt="Tracy emblem">
+    <div>
+      <div class="brand-name">TRACY</div>
+      <div class="brand-sub">Creative Operations · Digital Systems</div>
+    </div>
+  </a>
+
+  <nav class="main-nav" aria-label="Main navigation">
+    <a href="about.html">About</a>
+    <a href="experience.html" class="active">Experience</a>
+    <a href="#roles">Roles</a>
+    <a href="skills.html">Skills</a>
+    <a href="credentials.html">Credentials</a>
+    <a href="contact.html">Contact</a>
+    <span class="nav-divider"></span>
+  </nav>
+</header>
+
+<nav class="role-switcher" aria-label="Role navigation">
+  <a class="role-link" href="brand-creative-direction.html"><span class="role-num">01</span>Brand &amp; Creative Direction</a>
+  <a class="role-link" href="social-media-management.html"><span class="role-num">02</span>Social Media Management</a>
+  <a class="role-link" href="content-direction.html"><span class="role-num">03</span>Content Direction</a>
+  <a class="role-link" href="video-editing.html"><span class="role-num">04</span>Video Editing</a>
+  <a class="role-link" href="operations-systems.html"><span class="role-num">05</span>Operations &amp; Systems</a>
+  <a class="role-link" href="digital-support.html"><span class="role-num">06</span>Digital Support</a>
+</nav>
+
+<main>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <div class="eyebrow">The Work Archive</div>
+      <h1 class="hero-title">
+        Not everything<br>
+        belongs <span class="blue">on display.</span><br>
+        But the right work<br>
+        deserves to be <span class="pink">seen.</span>
+      </h1>
+      <p class="hero-intro">
+        This is where I keep the pieces which made it out of the notebook, the workspace,
+        the client folder and into the real world. Some are personal. Some are public.
+        Some were created for clients and are shared here only when I have assessed them
+        appropriate for public viewing.
+      </p>
+      <div class="hero-note"><i></i> A curated archive of things I have built, shaped, supported and shipped.</div>
+    </div>
+
+    <div class="hero-art reveal">
+      <div class="archive-object">
+        <div class="object-top"><span>WORK ARCHIVE</span><span>TRACY / 2026</span></div>
+        <div class="object-center">
+          <h2>THE<br><span>WORK</span><br>ARCHIVE.</h2>
+          <div class="object-stamp">Selected / Curated / Intentional</div>
+        </div>
+        <div class="object-bottom"><span>01—∞</span><span>OPEN / EXPLORE</span></div>
+        <div class="object-orbit"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container intro-grid">
+    <div class="reveal">
+      <div class="section-kicker">Why This Exists</div>
+      <h2 class="section-title">The work is the evidence.</h2>
+    </div>
+    <div class="reveal">
+      <p class="section-copy">
+        I can talk about what I know, how I think and how I work. At some point, though,
+        I want the work itself to do some of the talking.
+      </p>
+      <p class="section-copy">
+        I built this archive to give those pieces somewhere intentional to live. Not as
+        a giant gallery. Not as a collection of everything I have ever touched. I want
+        each piece to have context, a reason for being here and a clear connection to
+        the role I played in making it.
+      </p>
+      <p class="section-copy">
+        The archive will grow with me. Some projects will leave. Some will become case
+        studies. Some will stay as small pieces of evidence. The point is not to make
+        the archive look full. The point is to make it honest.
+      </p>
+    </div>
+  </div>
+
+  <div class="container archive-principles">
+    <article class="principle reveal">
+      <div class="num">01</div>
+      <h3>Curated</h3>
+      <p>I choose work based on relevance, quality, ownership, context and whether it is appropriate to share.</p>
+    </article>
+    <article class="principle reveal">
+      <div class="num">02</div>
+      <h3>Contextual</h3>
+      <p>A finished output matters more when you understand what it was for, where it lived and what I contributed.</p>
+    </article>
+    <article class="principle reveal">
+      <div class="num">03</div>
+      <h3>Respectful</h3>
+      <p>Client trust comes before portfolio visibility. Private work stays private unless there is a responsible reason to share it.</p>
+    </article>
+  </div>
+</section>
+
+<section class="filter-section" id="archive">
+  <div class="container">
+    <div class="filter-head reveal">
+      <div>
+        <div class="section-kicker">Browse The Archive</div>
+        <h2 class="filter-title">Find your way around.</h2>
+      </div>
+      <div class="filter-meta"><span id="resultCount">12</span> RECORDS / 06 LENSES</div>
+    </div>
+
+    <div class="filters reveal" role="tablist" aria-label="Project filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="brand">Brand</button>
+      <button class="filter-btn" data-filter="social">Social</button>
+      <button class="filter-btn" data-filter="content">Content</button>
+      <button class="filter-btn" data-filter="video">Video</button>
+      <button class="filter-btn" data-filter="digital">Digital</button>
+      <button class="filter-btn" data-filter="operations">Operations</button>
+    </div>
+  </div>
+</section>
+
+<section class="archive-grid-section">
+  <div class="container">
+    <div class="project-grid" id="projectGrid"></div>
+  </div>
+</section>
+
+<section class="proof-section">
+  <div class="container proof-grid">
+    <div class="reveal">
+      <div class="section-kicker" style="color:var(--gold-light)">What You Are Looking At</div>
+      <h2 class="proof-title">A finished piece is only <span>one layer</span> of the work.</h2>
+      <p class="proof-copy">
+        Behind an output there is often research, planning, communication, production,
+        organization, revision, quality control, publishing, troubleshooting or systems
+        work. I want the archive to show the output while still giving enough context to
+        understand the thinking behind it.
+      </p>
+    </div>
+
+    <div class="proof-list reveal">
+      <div class="proof-row">
+        <div class="num">01</div>
+        <div><strong>What was the need?</strong><span>The problem, opportunity or purpose behind the piece.</span></div>
+        <i>↗</i>
+      </div>
+      <div class="proof-row">
+        <div class="num">02</div>
+        <div><strong>What did I own?</strong><span>The part I personally created, directed, organized or supported.</span></div>
+        <i>↗</i>
+      </div>
+      <div class="proof-row">
+        <div class="num">03</div>
+        <div><strong>Where did it go?</strong><span>The platform, channel, workflow or environment where the output was used.</span></div>
+        <i>↗</i>
+      </div>
+      <div class="proof-row">
+        <div class="num">04</div>
+        <div><strong>Why does it belong here?</strong><span>The reason this specific piece is useful evidence of my capabilities.</span></div>
+        <i>↗</i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="privacy">
+  <div class="container privacy-grid">
+    <div class="reveal">
+      <div class="section-kicker">Client Work &amp; Privacy</div>
+      <h2 class="privacy-title">Showing the work should never mean <span>breaking trust.</span></h2>
+    </div>
+
+    <div class="reveal">
+      <p class="privacy-copy">
+        A large part of professional work happens inside someone else's business. Some
+        things are safe to show. Some are not. I would rather have a smaller archive with
+        good judgment behind it than a larger archive built by exposing material which
+        should remain private.
+      </p>
+
+      <div class="privacy-note">
+        PUBLIC ARCHIVE RULE / If a piece contains private information, internal strategy,
+        confidential assets, sensitive customer information or anything I am not comfortable
+        representing publicly, it stays out of the archive.
+      </div>
+
+      <div class="privacy-checks">
+        <div class="check"><b>✓</b><span>Actual contribution is clear.</span></div>
+        <div class="check"><b>✓</b><span>Public visibility is appropriate.</span></div>
+        <div class="check"><b>✓</b><span>Confidential information is protected.</span></div>
+        <div class="check"><b>✓</b><span>The work represents my standards well.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="role-return" id="roles">
+  <div class="container">
+    <div class="role-return-head reveal">
+      <div>
+        <div class="section-kicker">Keep Exploring</div>
+        <h2 class="role-return-title">Different work.<br>Different lenses.</h2>
+      </div>
+      <p class="role-return-copy">
+        The archive shows the outputs. The role pages explain the thinking, process and
+        perspective behind each lens. Move between them whenever you want more context.
+      </p>
+    </div>
+
+    <div class="role-grid">
+      <a class="role-card reveal" href="brand-creative-direction.html">
+        <span class="num">01</span>
+        <strong>Brand &amp; Creative Direction</strong>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="role-card reveal" href="social-media-management.html">
+        <span class="num">02</span>
+        <strong>Social Media Management</strong>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="role-card reveal" href="content-direction.html">
+        <span class="num">03</span>
+        <strong>Content Direction</strong>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="role-card reveal" href="video-editing.html">
+        <span class="num">04</span>
+        <strong>Video Editing</strong>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="role-card reveal" href="operations-systems.html">
+        <span class="num">05</span>
+        <strong>Operations &amp; Systems</strong>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="role-card reveal" href="digital-support.html">
+        <span class="num">06</span>
+        <strong>Digital Support</strong>
+        <span class="arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container cta-inner reveal">
+    <div class="eyebrow">The Archive Is Still Growing</div>
+    <h2 class="cta-title">More work will arrive here as the story continues.</h2>
+    <p class="cta-copy">
+      For now, explore the pieces which are ready to be seen. The archive is intentionally
+      curated, and every new project has to earn its place.
+    </p>
+    <div class="btn-row">
+      <a href="experience.html" class="btn btn-primary">Back To Experience</a>
+      <a href="../index.html" class="btn btn-secondary">Return Home</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <span><strong>TRACY</strong> / THE ARCHIVE</span>
+  <span>CREATIVE OPERATIONS · DIGITAL SYSTEMS</span>
+  <a href="#archive">BACK TO ARCHIVE ↑</a>
+</footer>
+
+<div class="modal" id="projectModal" aria-hidden="true">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" aria-label="Close project details">×</button>
+    <div class="modal-hero">
+      <div class="modal-hero-word" id="modalVisual">PROJECT</div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-topline">
+        <span id="modalRole">ROLE</span>
+        <span id="modalNumber">PROJECT 01</span>
+      </div>
+      <h2 class="modal-title" id="modalTitle">Project title</h2>
+      <p class="modal-desc" id="modalDesc"></p>
+
+      <div class="modal-columns">
+        <div>
+          <h4>My Contribution</h4>
+          <p id="modalContribution"></p>
+        </div>
+        <div>
+          <h4>Where It Lived</h4>
+          <p id="modalPlatform"></p>
+        </div>
+        <div>
+          <h4>Why It Belongs</h4>
+          <p id="modalWhy"></p>
+        </div>
+        <div>
+          <h4>Visibility</h4>
+          <p id="modalVisibility"></p>
+        </div>
+      </div>
+
+      <div class="modal-tags" id="modalTags"></div>
+
+      <div class="modal-disclaimer">
+        ARCHIVE NOTE / Replace this project record with the real output, screenshots,
+        links and supporting evidence once the project has been reviewed for public sharing.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/*
+  ============================================================
+  ARCHIVE CONTENT
+  ============================================================
+
+  This is the main area you will edit later.
+
+  For each real project:
+  1. Change the title.
+  2. Change the category.
+  3. Change the role.
+  4. Add your real description.
+  5. Add your actual contribution.
+  6. Add where the work was used.
+  7. Add the visibility note.
+  8. Add tags.
+  9. Replace the visual placeholder later with your actual image.
+
+  Categories:
+  brand / social / content / video / digital / operations
+
+  The interface is already built. Your job later is mainly to
+  replace these records with your real work.
+*/
+
+const PROJECTS = [
+  {
+    id: "01",
+    category: "brand",
+    role: "Brand & Creative Direction",
+    title: "Brand Foundations",
+    visual: "BRAND",
+    desc: "PLACEHOLDER — Replace this with a real brand project and explain the problem, creative direction and final output.",
+    contribution: "PLACEHOLDER — Describe what you personally researched, directed, designed, developed or organized.",
+    platform: "PLACEHOLDER — Website, campaign, social, print, presentation, internal brand system, etc.",
+    why: "A strong example of how I identify what makes a brand recognizable and turn those strengths into a usable direction.",
+    visibility: "Public-ready sample / Replace after review",
+    tags: ["Brand", "Direction", "Identity"]
+  },
+  {
+    id: "02",
+    category: "social",
+    role: "Social Media Management",
+    title: "Social Content System",
+    visual: "SOCIAL",
+    desc: "PLACEHOLDER — Add an actual social media output or campaign you managed from planning through publishing.",
+    contribution: "PLACEHOLDER — Planning, asset preparation, caption development, scheduling, quality control, research, publishing or community support.",
+    platform: "PLACEHOLDER — Instagram, Facebook, TikTok, scheduling platform, etc.",
+    why: "Shows how I connect creative production with consistency, publishing and the practical rhythm of social media.",
+    visibility: "Public-ready sample / Replace after review",
+    tags: ["Social", "Publishing", "Content"]
+  },
+  {
+    id: "03",
+    category: "content",
+    role: "Content Direction",
+    title: "From Idea To Content",
+    visual: "CONTENT",
+    desc: "PLACEHOLDER — Add a content concept, campaign, carousel, editorial series or content system.",
+    contribution: "PLACEHOLDER — Explain the thinking, structure, writing, visual direction, research and production support you owned.",
+    platform: "PLACEHOLDER — Social, email, website, app, campaign or internal content system.",
+    why: "Shows how I give ideas a reason to exist and turn them into content people can understand and remember.",
+    visibility: "Public-ready sample / Replace after review",
+    tags: ["Content", "Strategy", "Direction"]
+  },
+  {
+    id: "04",
+    category: "video",
+    role: "Video Editing",
+    title: "The Edit",
+    visual: "VIDEO",
+    desc: "PLACEHOLDER — Add an actual edited video, reel, short-form piece or campaign asset.",
+    contribution: "PLACEHOLDER — Explain filming, footage selection, cuts, pacing, transitions, text, audio, hook or final polish.",
+    platform: "PLACEHOLDER — Instagram Reels, TikTok, YouTube Shorts, website, app, etc.",
+    why: "Shows how I use editing to earn attention, create feeling and help a message stay in someone's mind.",
+    visibility: "Public-ready sample / Replace after review",
+    tags: ["Video", "Editing", "Retention"]
+  },
+  {
+    id: "05",
+    category: "digital",
+    role: "Digital Support",
+    title: "Digital Workspace",
+    visual: "DIGITAL",
+    desc: "PLACEHOLDER — Add a safe-to-share example of a digital workspace, setup, landing page, form, documentation or platform workflow.",
+    contribution: "PLACEHOLDER — Explain the organization, research, setup, platform handling, documentation or digital support you provided.",
+    platform: "PLACEHOLDER — Google Workspace, website, email platform, form system, client platform, etc.",
+    why: "Shows the behind-the-scenes digital work which makes information easier to find, use and hand off.",
+    visibility: "Public-ready sample / Replace after review",
+    tags: ["Digital", "Support", "Organization"]
+  },
+  {
+    id: "06",
+    category: "operations",
+    role: "Operations & Systems",
+    title: "A Better Workflow",
+    visual: "SYSTEMS",
+    desc: "PLACEHOLDER — Add a safe-to-share system, workflow, tracker, SOP, process map or operational setup.",
+    contribution: "PLACEHOLDER — Explain how you assessed the workflow, organized it, built the system, tested it or improved it.",
+    platform: "PLACEHOLDER — Google Sheets, Drive, project platform, internal workflow, automation, etc.",
+    why: "Shows how I turn repeated work into something clearer, more consistent and easier for another person to carry.",
+    visibility: "Public-ready sample / Replace after review",
+    tags: ["Operations", "Systems", "Workflow"]
+  },
+  {
+    id: "07",
+    category: "brand",
+    role: "Brand & Creative Direction",
+    title: "Visual Language",
+    visual: "VISUAL",
+    desc: "PLACEHOLDER — Add a visual system, campaign direction, identity application or branded asset.",
+    contribution: "PLACEHOLDER — Add your exact role and ownership.",
+    platform: "PLACEHOLDER — Add where it was used.",
+    why: "PLACEHOLDER — Explain what this piece proves.",
+    visibility: "Public-ready sample / Replace after review",
+    tags: ["Brand", "Visual", "Creative"]
+  },
+  {
+    id: "08",
+    category: "social",
+    role: "Social Media Management",
+    title: "Published",
+    visual: "LIVE",
+    desc: "PLACEHOLDER — Add a real published client-facing social output.",
+    contribution: "PLACEHOLDER — Add your exact contribution.",
+    platform: "PLACEHOLDER — Add the real platform.",
+    why: "PLACEHOLDER — Explain why this is strong evidence.",
+    visibility: "Client output / Share only if approved",
+    tags: ["Social", "Client", "Published"]
+  },
+  {
+    id: "09",
+    category: "content",
+    role: "Content Direction",
+    title: "Content Series",
+    visual: "SERIES",
+    desc: "PLACEHOLDER — Add a real content series or connected set of outputs.",
+    contribution: "PLACEHOLDER — Add your exact contribution.",
+    platform: "PLACEHOLDER — Add where the series appeared.",
+    why: "PLACEHOLDER — Explain the content thinking.",
+    visibility: "Public-ready sample / Replace after review",
+    tags: ["Content", "Series", "Campaign"]
+  },
+  {
+    id: "10",
+    category: "video",
+    role: "Video Editing",
+    title: "Short Form",
+    visual: "SHORT",
+    desc: "PLACEHOLDER — Add a real short-form video output.",
+    contribution: "PLACEHOLDER — Add your exact editing contribution.",
+    platform: "PLACEHOLDER — Add the real platform.",
+    why: "PLACEHOLDER — Explain what the edit demonstrates.",
+    visibility: "Client output / Share only if approved",
+    tags: ["Video", "Short Form", "Edit"]
+  },
+  {
+    id: "11",
+    category: "digital",
+    role: "Digital Support",
+    title: "Digital Handoff",
+    visual: "HANDOFF",
+    desc: "PLACEHOLDER — Add a safe-to-share example of documentation, handoff structure, digital setup or organized asset environment.",
+    contribution: "PLACEHOLDER — Add what you built, organized or documented.",
+    platform: "PLACEHOLDER — Add the environment.",
+    why: "Shows how I make digital work easier for the next person to understand.",
+    visibility: "Private-derived / Anonymized version only",
+    tags: ["Digital", "Handoff", "Documentation"]
+  },
+  {
+    id: "12",
+    category: "operations",
+    role: "Operations & Systems",
+    title: "Repeatable",
+    visual: "REPEAT",
+    desc: "PLACEHOLDER — Add a safe-to-share example of a repeatable process, template, automation or operational structure.",
+    contribution: "PLACEHOLDER — Add your exact contribution.",
+    platform: "PLACEHOLDER — Add the real environment.",
+    why: "Shows the difference between completing a task once and building a better way to complete it again.",
+    visibility: "Public-ready sample / Replace after review",
+    tags: ["Systems", "Repeatable", "Efficiency"]
+  }
+];
+
+const projectGrid = document.getElementById("projectGrid");
+const resultCount = document.getElementById("resultCount");
+
+function renderProjects(filter = "all") {
+  const visible = PROJECTS.filter(project => filter === "all" || project.category === filter);
+  resultCount.textContent = visible.length;
+
+  projectGrid.innerHTML = visible.map(project => `
+    <article class="project-card reveal" data-id="${project.id}" tabindex="0" role="button" aria-label="Open ${project.title}">
+      <div class="project-visual">
+        <span class="project-label">${project.category}</span>
+        <span class="project-index">${project.id}</span>
+        <div class="visual-art">
+          <div class="visual-word">${project.visual}</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-meta">
+          <span>${project.role}</span>
+          <span>${project.id} / 12</span>
+        </div>
+        <h3>${project.title}</h3>
+        <p>${project.desc}</p>
+        <div class="project-open"><span>Open record</span><span>↗</span></div>
+      </div>
+    </article>
+  `).join("");
+
+  requestAnimationFrame(() => {
+    document.querySelectorAll(".project-card").forEach((card, index) => {
+      setTimeout(() => card.classList.add("visible"), index * 55);
+      card.addEventListener("click", () => openProject(card.dataset.id));
+      card.addEventListener("keydown", e => {
+        if(e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openProject(card.dataset.id);
+        }
+      });
+    });
+  });
+}
+
+const modal = document.getElementById("projectModal");
+const modalClose = document.getElementById("modalClose");
+
+function openProject(id) {
+  const project = PROJECTS.find(item => item.id === id);
+  if (!project) return;
+
+  document.getElementById("modalVisual").innerHTML = project.visual.replace(" ", "<br>");
+  document.getElementById("modalRole").textContent = project.role;
+  document.getElementById("modalNumber").textContent = `PROJECT ${project.id}`;
+  document.getElementById("modalTitle").textContent = project.title;
+  document.getElementById("modalDesc").textContent = project.desc;
+  document.getElementById("modalContribution").textContent = project.contribution;
+  document.getElementById("modalPlatform").textContent = project.platform;
+  document.getElementById("modalWhy").textContent = project.why;
+  document.getElementById("modalVisibility").textContent = project.visibility;
+  document.getElementById("modalTags").innerHTML = project.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
+
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closeProject() {
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+modalClose.addEventListener("click", closeProject);
+modal.addEventListener("click", e => {
+  if(e.target === modal) closeProject();
+});
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape") closeProject();
+});
+
+document.querySelectorAll(".filter-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+    renderProjects(button.dataset.filter);
+  });
+});
+
+window.addEventListener("scroll", () => {
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById("progress").style.width = `${(window.scrollY / height) * 100}%`;
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold:.08});
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+renderProjects();
+</script>
+
+</body>
+</html>

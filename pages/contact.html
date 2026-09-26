@@ -1,0 +1,3391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Tracy | Contact
+    </title>
+
+    <meta
+        name="description"
+        content="Contact Tracy for creative direction, content, digital systems, operations and professional collaboration."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* =========================================================
+           TRACY / CONTACT
+           BACKBONE VERSION
+
+           Purpose:
+           A quiet final chapter where a visitor understands
+           how to reach Tracy without being overwhelmed.
+
+           This version intentionally uses placeholders for social
+           links and contact details until the final accounts are
+           selected.
+
+           MASTER VISUAL LANGUAGE:
+           Editorial · Human · Warm · Structured · Intentional
+        ========================================================= */
+
+
+        :root {
+
+            --paper: #f7f4ee;
+            --paper-light: #fcfaf6;
+            --paper-warm: #eee6dc;
+
+            --brown: #493737;
+            --brown-dark: #352728;
+            --brown-soft: #705d5a;
+
+            --blue: #536b87;
+            --blue-light: #e1e8ec;
+
+            --pink: #a56f72;
+            --pink-light: #eee0df;
+
+            --gold: #b39158;
+            --gold-light: #d8c095;
+
+            --white: #fffdfa;
+
+            --line: rgba(73,55,55,.15);
+            --line-soft: rgba(73,55,55,.08);
+
+            --serif: "Playfair Display", Georgia, serif;
+            --sans: "Montserrat", Arial, sans-serif;
+            --mono: "DM Mono", monospace;
+
+            --shadow:
+                0 20px 55px rgba(73,55,55,.08);
+
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: var(--paper);
+            color: var(--brown);
+            font-family: var(--sans);
+        }
+
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+
+        ::selection {
+            background: var(--pink-light);
+            color: var(--brown);
+        }
+
+
+        .container {
+            width: calc(100% - 100px);
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--blue);
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: .30em;
+            text-transform: uppercase;
+        }
+
+
+        .eyebrow::after {
+            content: "";
+            width: 58px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition:
+                opacity .75s ease,
+                transform .75s ease;
+        }
+
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        .delay-1 {
+            transition-delay: .10s;
+        }
+
+
+        .delay-2 {
+            transition-delay: .20s;
+        }
+
+
+        .delay-3 {
+            transition-delay: .30s;
+        }
+
+
+        /* =========================================================
+           ARCHIVE BAR
+        ========================================================= */
+
+        .archive-bar {
+            min-height: 29px;
+            padding: 7px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            background: var(--brown-dark);
+            color: var(--white);
+            font-size: 7px;
+            font-weight: 600;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+        }
+
+
+        .archive-muted {
+            opacity: .45;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        header {
+            position: relative;
+            z-index: 100;
+            min-height: 92px;
+            background: rgba(247,244,238,.97);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(10px);
+        }
+
+
+        .nav-wrap {
+            width: calc(100% - 100px);
+            max-width: 1320px;
+            min-height: 92px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-shrink: 0;
+        }
+
+
+        .brand img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+
+
+        .brand-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+
+        .brand-name {
+            font-family: var(--serif);
+            font-size: 21px;
+            letter-spacing: .16em;
+        }
+
+
+        .brand-description {
+            color: var(--brown-soft);
+            font-size: 7px;
+            font-weight: 600;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+        }
+
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+
+        .main-nav a {
+            position: relative;
+            color: var(--brown-soft);
+            font-size: 8px;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+
+        .main-nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -9px;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width .25s ease;
+        }
+
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--brown);
+        }
+
+
+        .main-nav a:hover::after,
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+
+        .nav-divider {
+            width: 1px;
+            height: 23px;
+            background: var(--line);
+        }
+
+
+        .menu-button {
+            display: none;
+            width: 43px;
+            height: 43px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--line);
+            background: transparent;
+            cursor: pointer;
+        }
+
+
+        .menu-button span,
+        .menu-button span::before,
+        .menu-button span::after {
+            display: block;
+            width: 19px;
+            height: 1px;
+            background: var(--brown);
+        }
+
+
+        .menu-button span {
+            position: relative;
+        }
+
+
+        .menu-button span::before,
+        .menu-button span::after {
+            content: "";
+            position: absolute;
+            left: 0;
+        }
+
+
+        .menu-button span::before {
+            top: -6px;
+        }
+
+
+        .menu-button span::after {
+            top: 6px;
+        }
+
+
+        .menu-button.active span {
+            background: transparent;
+        }
+
+
+        .menu-button.active span::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
+
+
+        .menu-button.active span::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
+
+
+        /* =========================================================
+           MOBILE NAV
+        ========================================================= */
+
+        .mobile-nav {
+            position: fixed;
+            inset: 0;
+            z-index: 90;
+            padding: 130px 30px 40px;
+            display: flex;
+            flex-direction: column;
+            background:
+                linear-gradient(
+                    145deg,
+                    var(--paper-light),
+                    var(--paper-warm)
+                );
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition:
+                opacity .28s ease,
+                visibility .28s ease,
+                transform .28s ease;
+        }
+
+
+        .mobile-nav.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+
+        .mobile-nav-label {
+            margin-bottom: 25px;
+            color: var(--gold);
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: .25em;
+            text-transform: uppercase;
+        }
+
+
+        .mobile-nav a {
+            padding: 17px 0;
+            border-bottom: 1px solid var(--line);
+            font-family: var(--serif);
+            font-size: 29px;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+            min-height: 700px;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 79% 43%,
+                    rgba(225,232,236,.85),
+                    transparent 30%
+                ),
+                var(--paper);
+        }
+
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            right: -100px;
+            top: -150px;
+            width: 600px;
+            height: 600px;
+            border: 1px solid rgba(83,107,135,.11);
+            border-radius: 50%;
+        }
+
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            right: 55px;
+            top: -70px;
+            width: 410px;
+            height: 410px;
+            border: 1px solid rgba(179,145,88,.15);
+            border-radius: 50%;
+        }
+
+
+        .hero-ghost {
+            position: absolute;
+            left: -35px;
+            bottom: -60px;
+            color: rgba(73,55,55,.035);
+            font-family: var(--serif);
+            font-size: clamp(180px,29vw,430px);
+            line-height: .7;
+            user-select: none;
+        }
+
+
+        .hero-inner {
+            position: relative;
+            z-index: 3;
+            min-height: 700px;
+            display: grid;
+            grid-template-columns: 57% 43%;
+            align-items: center;
+        }
+
+
+        .hero-copy {
+            padding: 90px 0;
+        }
+
+
+        .hero-title {
+            max-width: 770px;
+            margin-top: 27px;
+            font-family: var(--serif);
+            font-size: clamp(58px,6.5vw,91px);
+            font-weight: 400;
+            line-height: .92;
+            letter-spacing: -.045em;
+        }
+
+
+        .hero-title em {
+            color: var(--pink);
+        }
+
+
+        .hero-title .blue {
+            color: var(--blue);
+        }
+
+
+        .hero-intro {
+            max-width: 640px;
+            margin-top: 32px;
+            color: var(--brown-soft);
+            font-size: 13px;
+            line-height: 1.95;
+        }
+
+
+        .hero-note {
+            max-width: 630px;
+            margin-top: 26px;
+            padding: 18px 21px;
+            border-left: 3px solid var(--gold);
+            background: rgba(238,228,210,.58);
+            font-family: var(--serif);
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+
+        /* =========================================================
+           HERO CONTACT CARD
+        ========================================================= */
+
+        .hero-card-wrap {
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .hero-card {
+            position: relative;
+            width: min(380px, 90%);
+            min-height: 445px;
+            padding: 29px;
+            border: 1px solid var(--line);
+            background: rgba(255,253,250,.83);
+            box-shadow: var(--shadow);
+            transform: rotate(2deg);
+        }
+
+
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            inset: 14px;
+            border: 1px solid rgba(179,145,88,.28);
+            pointer-events: none;
+        }
+
+
+        .hero-card-top {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            color: var(--gold);
+            font-family: var(--mono);
+            font-size: 7px;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+        }
+
+
+        .hero-card-title {
+            position: relative;
+            margin-top: 97px;
+            font-family: var(--serif);
+            font-size: 43px;
+            line-height: .97;
+        }
+
+
+        .hero-card-title em {
+            color: var(--pink);
+        }
+
+
+        .hero-card-copy {
+            position: absolute;
+            left: 29px;
+            right: 29px;
+            bottom: 64px;
+            color: var(--brown-soft);
+            font-size: 8px;
+            line-height: 1.75;
+        }
+
+
+        .hero-card-mark {
+            position: absolute;
+            right: 32px;
+            bottom: 24px;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--blue);
+            border-radius: 50%;
+            color: var(--blue);
+            font-family: var(--serif);
+            font-size: 19px;
+        }
+
+
+        .hero-card-label {
+            position: absolute;
+            z-index: 5;
+            left: 1%;
+            bottom: 11%;
+            padding: 14px 16px;
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--blue);
+            background: rgba(255,253,250,.94);
+            box-shadow: var(--shadow);
+            transform: rotate(-3deg);
+        }
+
+
+        .hero-card-label span {
+            display: block;
+            color: var(--gold);
+            font-family: var(--mono);
+            font-size: 6px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+
+        .hero-card-label strong {
+            display: block;
+            margin-top: 6px;
+            font-family: var(--serif);
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+
+        /* =========================================================
+           CONTACT CHANNELS
+        ========================================================= */
+
+        .channels {
+            padding: 105px 0 120px;
+            background: var(--white);
+        }
+
+
+        .channels-head {
+            display: grid;
+            grid-template-columns: 43% 57%;
+            gap: 70px;
+            align-items: end;
+        }
+
+
+        .section-title {
+            margin-top: 25px;
+            font-family: var(--serif);
+            font-size: clamp(46px,5.4vw,72px);
+            font-weight: 400;
+            line-height: .97;
+            letter-spacing: -.025em;
+        }
+
+
+        .section-title em {
+            color: var(--pink);
+        }
+
+
+        .section-copy {
+            max-width: 680px;
+            color: var(--brown-soft);
+            font-size: 13px;
+            line-height: 1.95;
+        }
+
+
+        .channel-grid {
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            border-top: 1px solid var(--line);
+            border-left: 1px solid var(--line);
+        }
+
+
+        .channel-card {
+            min-height: 270px;
+            padding: 25px;
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            transition:
+                transform .3s ease,
+                background .3s ease;
+        }
+
+
+        .channel-card:nth-child(1) {
+            background: var(--blue-light);
+        }
+
+
+        .channel-card:nth-child(2) {
+            background: var(--pink-light);
+        }
+
+
+        .channel-card:nth-child(3) {
+            background: var(--paper-warm);
+        }
+
+
+        .channel-card:hover {
+            transform: translateY(-6px);
+            background: var(--paper-light);
+        }
+
+
+        .channel-number {
+            color: var(--gold);
+            font-family: var(--mono);
+            font-size: 7px;
+            letter-spacing: .12em;
+        }
+
+
+        .channel-icon {
+            width: 43px;
+            height: 43px;
+            margin-top: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid currentColor;
+            border-radius: 50%;
+            font-size: 17px;
+        }
+
+
+        .channel-card h3 {
+            margin-top: 16px;
+            font-family: var(--serif);
+            font-size: 25px;
+            font-weight: 400;
+        }
+
+
+        .channel-card p {
+            margin-top: 7px;
+            color: var(--brown-soft);
+            font-size: 8px;
+            line-height: 1.75;
+        }
+
+
+        .channel-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            color: var(--blue);
+            font-size: 7px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+
+        .channel-link:hover {
+            color: var(--pink);
+        }
+
+
+        /* =========================================================
+           SOCIAL MEDIA
+        ========================================================= */
+
+        .social-section {
+            padding: 108px 0 120px;
+            background: var(--paper);
+        }
+
+
+        .social-layout {
+            display: grid;
+            grid-template-columns: 42% 58%;
+            gap: 78px;
+            align-items: start;
+        }
+
+
+        .social-copy {
+            max-width: 650px;
+            margin-top: 28px;
+            color: var(--brown-soft);
+            font-size: 13px;
+            line-height: 1.95;
+        }
+
+
+        .social-copy + .social-copy {
+            margin-top: 18px;
+        }
+
+
+        .social-quote {
+            margin-top: 28px;
+            padding: 20px 22px;
+            border-left: 3px solid var(--pink);
+            background: var(--pink-light);
+            font-family: var(--serif);
+            font-size: 19px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+
+        .social-list {
+            border-top: 1px solid var(--line);
+        }
+
+
+        .social-item {
+            min-height: 100px;
+            padding: 18px 0;
+            display: grid;
+            grid-template-columns: 58px 1fr 30px;
+            gap: 18px;
+            align-items: center;
+            border-bottom: 1px solid var(--line);
+            transition:
+                padding .25s ease,
+                background .25s ease;
+        }
+
+
+        .social-item:hover {
+            padding-left: 14px;
+            padding-right: 14px;
+            background: var(--white);
+        }
+
+
+        .social-icon {
+            width: 43px;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            color: var(--blue);
+            font-family: var(--serif);
+            font-size: 16px;
+        }
+
+
+        .social-meta {
+            color: var(--gold);
+            font-family: var(--mono);
+            font-size: 6px;
+            letter-spacing: .11em;
+            text-transform: uppercase;
+        }
+
+
+        .social-name {
+            margin-top: 5px;
+            font-family: var(--serif);
+            font-size: 23px;
+        }
+
+
+        .social-handle {
+            margin-top: 3px;
+            color: var(--brown-soft);
+            font-size: 7px;
+            letter-spacing: .06em;
+        }
+
+
+        .social-arrow {
+            color: var(--gold);
+            font-size: 17px;
+            transition: transform .25s ease;
+        }
+
+
+        .social-item:hover .social-arrow {
+            transform: translate(4px,-4px);
+        }
+
+
+        /* =========================================================
+           COLLABORATION FIT
+        ========================================================= */
+
+        .fit-section {
+            padding: 110px 0 120px;
+            background: var(--blue-light);
+        }
+
+
+        .fit-head {
+            display: grid;
+            grid-template-columns: 45% 55%;
+            gap: 70px;
+            align-items: end;
+        }
+
+
+        .fit-grid {
+            margin-top: 58px;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            border-top: 1px solid var(--line);
+            border-left: 1px solid var(--line);
+        }
+
+
+        .fit-card {
+            min-height: 260px;
+            padding: 24px;
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            background: rgba(255,253,250,.45);
+        }
+
+
+        .fit-card:nth-child(1) {
+            background: var(--white);
+        }
+
+
+        .fit-card:nth-child(2) {
+            background: var(--pink-light);
+        }
+
+
+        .fit-card:nth-child(3) {
+            background: var(--paper-warm);
+        }
+
+
+        .fit-card:nth-child(4) {
+            background: var(--sage-light);
+        }
+
+
+        .fit-number {
+            color: var(--gold);
+            font-family: var(--mono);
+            font-size: 7px;
+        }
+
+
+        .fit-card h3 {
+            margin-top: 67px;
+            font-family: var(--serif);
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+
+        .fit-card p {
+            margin-top: 9px;
+            color: var(--brown-soft);
+            font-size: 8px;
+            line-height: 1.75;
+        }
+
+
+        /* =========================================================
+           MESSAGE FORM BACKBONE
+        ========================================================= */
+
+        .message-section {
+            padding: 115px 0 125px;
+            background: var(--brown);
+            color: var(--white);
+        }
+
+
+        .message-grid {
+            display: grid;
+            grid-template-columns: 43% 57%;
+            gap: 78px;
+            align-items: start;
+        }
+
+
+        .light-eyebrow {
+            color: var(--gold-light);
+        }
+
+
+        .light-eyebrow::after {
+            background: var(--gold-light);
+        }
+
+
+        .message-title {
+            margin-top: 27px;
+            font-family: var(--serif);
+            font-size: clamp(50px,5.7vw,76px);
+            font-weight: 400;
+            line-height: .97;
+        }
+
+
+        .message-title em {
+            color: var(--pink-light);
+        }
+
+
+        .message-copy {
+            margin-top: 27px;
+            color: rgba(255,253,250,.67);
+            font-size: 13px;
+            line-height: 1.95;
+        }
+
+
+        .message-note {
+            margin-top: 28px;
+            padding: 18px 21px;
+            border-left: 2px solid var(--gold);
+            background: rgba(255,255,255,.045);
+            color: rgba(255,253,250,.83);
+            font-family: var(--serif);
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+
+        .contact-form {
+            padding: 31px;
+            border: 1px solid rgba(255,255,255,.16);
+            background: rgba(255,255,255,.035);
+        }
+
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+
+        .field {
+            margin-bottom: 17px;
+        }
+
+
+        .field label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--gold-light);
+            font-size: 7px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+
+        .field input,
+        .field textarea,
+        .field select {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid rgba(255,255,255,.17);
+            outline: none;
+            background: rgba(255,255,255,.035);
+            color: var(--white);
+            font-size: 11px;
+            transition:
+                border-color .2s ease,
+                background .2s ease;
+        }
+
+
+        .field input:focus,
+        .field textarea:focus,
+        .field select:focus {
+            border-color: var(--gold-light);
+            background: rgba(255,255,255,.07);
+        }
+
+
+        .field textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+
+        .field select option {
+            color: var(--brown);
+        }
+
+
+        .form-submit {
+            width: 100%;
+            min-height: 52px;
+            border: 1px solid var(--gold-light);
+            background: var(--gold-light);
+            color: var(--brown-dark);
+            cursor: pointer;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            transition:
+                background .25s ease,
+                color .25s ease;
+        }
+
+
+        .form-submit:hover {
+            background: var(--white);
+        }
+
+
+        .form-status {
+            min-height: 20px;
+            margin-top: 12px;
+            color: var(--gold-light);
+            font-size: 8px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+           FINAL NOTE
+        ========================================================= */
+
+        .final-note {
+            padding: 120px 0 125px;
+            text-align: center;
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    rgba(238,224,223,.72),
+                    transparent 58%
+                ),
+                var(--paper-light);
+        }
+
+
+        .final-note-title {
+            max-width: 920px;
+            margin: 27px auto 0;
+            font-family: var(--serif);
+            font-size: clamp(48px,6vw,80px);
+            font-weight: 400;
+            line-height: .97;
+        }
+
+
+        .final-note-title span {
+            color: var(--blue);
+        }
+
+
+        .final-note-copy {
+            max-width: 690px;
+            margin: 28px auto 0;
+            color: var(--brown-soft);
+            font-family: var(--serif);
+            font-size: 19px;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+           FOOTER
+           WORK REMOVED
+        ========================================================= */
+
+        footer {
+            background: var(--brown-dark);
+            color: var(--white);
+        }
+
+
+        .footer-main {
+            min-height: 115px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+        }
+
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+
+        .footer-brand img {
+            width: 39px;
+            height: 39px;
+            object-fit: contain;
+        }
+
+
+        .footer-name {
+            font-family: var(--serif);
+            font-size: 17px;
+            letter-spacing: .15em;
+        }
+
+
+        .footer-tagline {
+            margin-top: 4px;
+            color: rgba(255,255,255,.48);
+            font-size: 7px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 19px;
+        }
+
+
+        .footer-links a {
+            color: rgba(255,255,255,.64);
+            font-size: 7px;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+
+        .footer-bottom {
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            border-top: 1px solid rgba(255,255,255,.12);
+            color: rgba(255,255,255,.40);
+            font-size: 7px;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           BACK TOP
+        ========================================================= */
+
+        .back-top {
+            position: fixed;
+            right: 23px;
+            bottom: 23px;
+            z-index: 85;
+            width: 43px;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--line);
+            background: rgba(252,250,246,.94);
+            color: var(--brown);
+            font-family: var(--serif);
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(9px);
+            transition:
+                opacity .25s ease,
+                visibility .25s ease,
+                transform .25s ease;
+        }
+
+
+        .back-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 1180px) {
+
+            .container,
+            .nav-wrap {
+                width: calc(100% - 70px);
+            }
+
+
+            .main-nav {
+                gap: 16px;
+            }
+
+
+            .fit-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE NAV + LAYOUT
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .archive-bar {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+
+            .main-nav {
+                display: none;
+            }
+
+
+            .menu-button {
+                display: flex;
+            }
+
+
+            .hero {
+                min-height: 1050px;
+            }
+
+
+            .hero-inner {
+                min-height: 1050px;
+                display: block;
+            }
+
+
+            .hero-copy {
+                padding: 70px 0 25px;
+            }
+
+
+            .hero-card-wrap {
+                min-height: 510px;
+            }
+
+
+            .channels-head,
+            .social-layout,
+            .fit-head,
+            .message-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+
+            .channel-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+
+            .footer-main {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 38px 0;
+            }
+
+
+            .footer-links {
+                justify-content: flex-start;
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 650px) {
+
+            .container,
+            .nav-wrap {
+                width: calc(100% - 36px);
+            }
+
+
+            .archive-bar {
+                padding: 7px 18px;
+            }
+
+
+            .archive-muted {
+                display: none;
+            }
+
+
+            header,
+            .nav-wrap {
+                min-height: 82px;
+            }
+
+
+            .brand img {
+                width: 44px;
+                height: 44px;
+            }
+
+
+            .brand-name {
+                font-size: 23px;
+            }
+
+
+            .brand-description {
+                font-size: 6px;
+            }
+
+
+            .hero {
+                min-height: 930px;
+            }
+
+
+            .hero-inner {
+                min-height: 930px;
+            }
+
+
+            .hero-copy {
+                padding: 57px 0 20px;
+            }
+
+
+            .hero-title {
+                font-size: clamp(45px,13vw,64px);
+            }
+
+
+            .hero-intro {
+                font-size: 11px;
+                line-height: 1.9;
+            }
+
+
+            .hero-note {
+                font-size: 16px;
+            }
+
+
+            .hero-card-wrap {
+                min-height: 390px;
+            }
+
+
+            .hero-card {
+                width: 275px;
+                min-height: 350px;
+                padding: 21px;
+            }
+
+
+            .hero-card::before {
+                inset: 11px;
+            }
+
+
+            .hero-card-title {
+                margin-top: 72px;
+                font-size: 31px;
+            }
+
+
+            .hero-card-copy {
+                left: 21px;
+                right: 21px;
+                bottom: 48px;
+                font-size: 6px;
+            }
+
+
+            .hero-card-mark {
+                right: 22px;
+                bottom: 17px;
+                width: 44px;
+                height: 44px;
+                font-size: 15px;
+            }
+
+
+            .hero-card-label {
+                left: 0;
+                bottom: 4%;
+                padding: 10px;
+            }
+
+
+            .hero-card-label strong {
+                font-size: 14px;
+            }
+
+
+            .channels,
+            .social-section,
+            .fit-section,
+            .message-section,
+            .final-note {
+                padding: 80px 0 86px;
+            }
+
+
+            .section-title {
+                font-size: 42px;
+            }
+
+
+            .section-copy,
+            .social-copy,
+            .message-copy {
+                font-size: 12px;
+                line-height: 1.9;
+            }
+
+
+            .channel-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .channel-card {
+                min-height: 230px;
+            }
+
+
+            .channel-icon {
+                margin-top: 40px;
+            }
+
+
+            .social-item {
+                grid-template-columns: 49px 1fr 23px;
+                gap: 11px;
+            }
+
+
+            .social-icon {
+                width: 39px;
+                height: 39px;
+            }
+
+
+            .social-name {
+                font-size: 20px;
+            }
+
+
+            .fit-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .fit-card {
+                min-height: 215px;
+            }
+
+
+            .fit-card h3 {
+                margin-top: 47px;
+            }
+
+
+            .contact-form {
+                padding: 21px;
+            }
+
+
+            .message-title {
+                font-size: 43px;
+            }
+
+
+            .final-note-title {
+                font-size: 43px;
+            }
+
+
+            .final-note-copy {
+                font-size: 17px;
+            }
+
+
+            .footer-bottom {
+                min-height: 75px;
+                padding: 13px 0;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 7px;
+            }
+
+        }
+
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="page">
+
+
+    <!-- =========================================================
+         ARCHIVE BAR
+    ========================================================= -->
+
+    <div class="archive-bar">
+
+        <span>
+            TRACY / PERSONAL WORK ARCHIVE
+        </span>
+
+
+        <span class="archive-muted">
+            CONTACT / OPEN DOOR
+        </span>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         HEADER
+         WORK REMOVED
+    ========================================================= -->
+
+    <header>
+
+        <div class="nav-wrap">
+
+
+            <a
+                href="../index.html"
+                class="brand"
+                aria-label="Tracy home"
+            >
+
+                <img
+                    src="../assets/images/primary-emblem.png"
+                    alt="Tracy emblem"
+                >
+
+
+                <div class="brand-copy">
+
+                    <div class="brand-name">
+                        TRACY
+                    </div>
+
+
+                    <div class="brand-description">
+                        Creative Operations · Digital Systems
+                    </div>
+
+                </div>
+
+            </a>
+
+
+
+            <nav
+                class="main-nav"
+                aria-label="Primary navigation"
+            >
+
+                <a href="about.html">
+                    About
+                </a>
+
+
+                <a href="experience.html">
+                    Experience
+                </a>
+
+
+                <a href="../index.html#roles">
+                    Roles
+                </a>
+
+
+                <a href="skills.html">
+                    Skills
+                </a>
+
+
+                <a href="credentials.html">
+                    Credentials
+                </a>
+
+
+                <a
+                    href="contact.html"
+                    class="active"
+                >
+                    Contact
+                </a>
+
+
+                <span class="nav-divider"></span>
+
+            </nav>
+
+
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="Open navigation"
+                aria-expanded="false"
+            >
+
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         MOBILE NAV
+         WORK REMOVED
+    ========================================================= -->
+
+    <div
+        class="mobile-nav"
+        id="mobileNav"
+    >
+
+        <div class="mobile-nav-label">
+            Personal Archive / Navigation
+        </div>
+
+
+        <a href="about.html">
+            About
+        </a>
+
+
+        <a href="experience.html">
+            Experience
+        </a>
+
+
+        <a href="../index.html#roles">
+            Roles
+        </a>
+
+
+        <a href="skills.html">
+            Skills
+        </a>
+
+
+        <a href="credentials.html">
+            Credentials
+        </a>
+
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <section class="hero">
+
+
+        <div
+            class="hero-ghost"
+            aria-hidden="true"
+        >
+            HELLO
+        </div>
+
+
+        <div class="container hero-inner">
+
+
+            <div class="hero-copy reveal">
+
+
+                <div class="eyebrow">
+                    Contact / Start Here
+                </div>
+
+
+                <h1 class="hero-title">
+
+                    If the work
+                    feels like a
+                    <span class="blue">
+                        good fit,
+                    </span>
+
+                    let's
+                    <em>
+                        talk.
+                    </em>
+
+                </h1>
+
+
+                <p class="hero-intro">
+
+                    I like conversations which begin with
+                    a real need.
+
+                    A business trying to organize itself.
+
+                    A brand trying to find its voice.
+
+                    A team carrying too many moving pieces.
+
+                    A creative project which needs someone
+                    to help connect the pieces.
+
+                </p>
+
+
+                <div class="hero-note">
+
+                    You do not need to have everything figured
+                    out before reaching out.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="hero-card-wrap reveal delay-1">
+
+
+                <div class="hero-card">
+
+
+                    <div class="hero-card-top">
+
+                        <span>
+                            PERSONAL ARCHIVE / 07
+                        </span>
+
+
+                        <span>
+                            OPEN
+                        </span>
+
+                    </div>
+
+
+                    <div class="hero-card-title">
+
+                        Start.
+
+                        <br>
+
+                        <em>
+                            Connect.
+                        </em>
+
+                        <br>
+
+                        Build.
+
+                    </div>
+
+
+                    <p class="hero-card-copy">
+
+                        CREATIVE DIRECTION · CONTENT ·
+                        DIGITAL SYSTEMS · OPERATIONS ·
+                        COLLABORATION
+
+                    </p>
+
+
+                    <div class="hero-card-mark">
+                        ✦
+                    </div>
+
+                </div>
+
+
+                <div class="hero-card-label">
+
+                    <span>
+                        Availability
+                    </span>
+
+
+                    <strong>
+                        Let's discuss.
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         CONTACT CHANNELS
+    ========================================================= -->
+
+    <section class="channels">
+
+        <div class="container">
+
+
+            <div class="channels-head">
+
+
+                <div class="reveal">
+
+                    <div class="eyebrow">
+                        Ways To Reach Me
+                    </div>
+
+
+                    <h2 class="section-title">
+
+                        Choose the
+                        <em>
+                            door.
+                        </em>
+
+                    </h2>
+
+                </div>
+
+
+                <p class="section-copy reveal delay-1">
+
+                    For the backbone, I am keeping the contact
+                    structure simple.
+
+                    These spaces will eventually hold the
+                    final contact details, professional email,
+                    social accounts and any other public
+                    channels I decide to keep open.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="channel-grid">
+
+
+                <article class="channel-card reveal">
+
+                    <span class="channel-number">
+                        01 / EMAIL
+                    </span>
+
+
+                    <div class="channel-icon">
+                        @
+                    </div>
+
+
+                    <h3>
+                        Email
+                    </h3>
+
+
+                    <p>
+                        Best for professional inquiries,
+                        collaborations, project discussions
+                        and business opportunities.
+                    </p>
+
+
+                    <!-- REPLACE EMAIL PLACEHOLDER LATER -->
+
+                    <a
+                        href="mailto:YOUR-EMAIL-HERE@example.com"
+                        class="channel-link"
+                    >
+                        YOUR EMAIL HERE →
+                    </a>
+
+                </article>
+
+
+
+                <article class="channel-card reveal delay-1">
+
+                    <span class="channel-number">
+                        02 / PROFESSIONAL
+                    </span>
+
+
+                    <div class="channel-icon">
+                        in
+                    </div>
+
+
+                    <h3>
+                        LinkedIn
+                    </h3>
+
+
+                    <p>
+                        A professional space for connecting,
+                        following the work and learning more
+                        about my career direction.
+                    </p>
+
+
+                    <!-- REPLACE LINK LATER -->
+
+                    <a
+                        href="#"
+                        class="channel-link placeholder-link"
+                    >
+                        PROFILE LINK TO COME →
+                    </a>
+
+                </article>
+
+
+
+                <article class="channel-card reveal delay-2">
+
+                    <span class="channel-number">
+                        03 / SOCIAL
+                    </span>
+
+
+                    <div class="channel-icon">
+                        ◎
+                    </div>
+
+
+                    <h3>
+                        Social
+                    </h3>
+
+
+                    <p>
+                        Selected public social pages will
+                        live here once the final accounts
+                        and handles are ready.
+                    </p>
+
+
+                    <!-- REPLACE LINK LATER -->
+
+                    <a
+                        href="#"
+                        class="channel-link placeholder-link"
+                    >
+                        SOCIAL LINKS TO COME →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         SOCIAL MEDIA ICONS
+         BACKBONE ONLY
+    ========================================================= -->
+
+    <section class="social-section">
+
+        <div class="container social-layout">
+
+
+            <div class="reveal">
+
+
+                <div class="eyebrow">
+                    My Public Spaces
+                </div>
+
+
+                <h2 class="section-title">
+
+                    A few places
+                    to find
+                    <span style="color:var(--blue);">
+                        me.
+                    </span>
+
+                </h2>
+
+
+                <p class="social-copy">
+
+                    I want my public presence to feel
+                    connected rather than scattered.
+
+                    Each account will eventually have a
+                    purpose, and the links below will make
+                    the ecosystem easier to navigate.
+
+                </p>
+
+
+                <p class="social-copy">
+
+                    For now, these are placeholders.
+
+                    We will replace the handles, URLs and
+                    platform choices once the accounts are
+                    finalized.
+
+                </p>
+
+
+                <div class="social-quote">
+
+                    I would rather have fewer spaces with
+                    something meaningful inside them than
+                    many accounts with no reason to exist.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="social-list reveal delay-1">
+
+
+                <!-- =================================================
+                     SOCIAL ITEM 01
+                     Replace href + handle later
+                ================================================== -->
+
+                <a
+                    href="#"
+                    class="social-item placeholder-link"
+                >
+
+                    <div class="social-icon">
+                        ◎
+                    </div>
+
+
+                    <div>
+
+                        <div class="social-meta">
+                            Instagram
+                        </div>
+
+
+                        <div class="social-name">
+                            Instagram
+                        </div>
+
+
+                        <div class="social-handle">
+                            @USERNAME_TO_BE_ADDED
+                        </div>
+
+                    </div>
+
+
+                    <div class="social-arrow">
+                        ↗
+                    </div>
+
+                </a>
+
+
+
+                <!-- =================================================
+                     SOCIAL ITEM 02
+                ================================================== -->
+
+                <a
+                    href="#"
+                    class="social-item placeholder-link"
+                >
+
+                    <div class="social-icon">
+                        f
+                    </div>
+
+
+                    <div>
+
+                        <div class="social-meta">
+                            Facebook
+                        </div>
+
+
+                        <div class="social-name">
+                            Facebook
+                        </div>
+
+
+                        <div class="social-handle">
+                            PAGE_TO_BE_ADDED
+                        </div>
+
+                    </div>
+
+
+                    <div class="social-arrow">
+                        ↗
+                    </div>
+
+                </a>
+
+
+
+                <!-- =================================================
+                     SOCIAL ITEM 03
+                ================================================== -->
+
+                <a
+                    href="#"
+                    class="social-item placeholder-link"
+                >
+
+                    <div class="social-icon">
+                        in
+                    </div>
+
+
+                    <div>
+
+                        <div class="social-meta">
+                            LinkedIn
+                        </div>
+
+
+                        <div class="social-name">
+                            LinkedIn
+                        </div>
+
+
+                        <div class="social-handle">
+                            PROFILE_TO_BE_ADDED
+                        </div>
+
+                    </div>
+
+
+                    <div class="social-arrow">
+                        ↗
+                    </div>
+
+                </a>
+
+
+
+                <!-- =================================================
+                     SOCIAL ITEM 04
+                ================================================== -->
+
+                <a
+                    href="#"
+                    class="social-item placeholder-link"
+                >
+
+                    <div class="social-icon">
+                        ▶
+                    </div>
+
+
+                    <div>
+
+                        <div class="social-meta">
+                            YouTube
+                        </div>
+
+
+                        <div class="social-name">
+                            YouTube
+                        </div>
+
+
+                        <div class="social-handle">
+                            CHANNEL_TO_BE_ADDED
+                        </div>
+
+                    </div>
+
+
+                    <div class="social-arrow">
+                        ↗
+                    </div>
+
+                </a>
+
+
+
+                <!-- =================================================
+                     SOCIAL ITEM 05
+                ================================================== -->
+
+                <a
+                    href="#"
+                    class="social-item placeholder-link"
+                >
+
+                    <div class="social-icon">
+                        P
+                    </div>
+
+
+                    <div>
+
+                        <div class="social-meta">
+                            Pinterest
+                        </div>
+
+
+                        <div class="social-name">
+                            Pinterest
+                        </div>
+
+
+                        <div class="social-handle">
+                            PROFILE_TO_BE_ADDED
+                        </div>
+
+                    </div>
+
+
+                    <div class="social-arrow">
+                        ↗
+                    </div>
+
+                </a>
+
+
+
+                <!-- =================================================
+                     SOCIAL ITEM 06
+                ================================================== -->
+
+                <a
+                    href="#"
+                    class="social-item placeholder-link"
+                >
+
+                    <div class="social-icon">
+                        +
+                    </div>
+
+
+                    <div>
+
+                        <div class="social-meta">
+                            Future Space
+                        </div>
+
+
+                        <div class="social-name">
+                            More Soon
+                        </div>
+
+
+                        <div class="social-handle">
+                            ACCOUNT_TO_BE_ADDED
+                        </div>
+
+                    </div>
+
+
+                    <div class="social-arrow">
+                        ↗
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         WHO SHOULD REACH OUT
+    ========================================================= -->
+
+    <section class="fit-section">
+
+        <div class="container">
+
+
+            <div class="fit-head">
+
+
+                <div class="reveal">
+
+                    <div class="eyebrow">
+                        A Good Starting Point
+                    </div>
+
+
+                    <h2 class="section-title">
+
+                        You might be
+                        looking for
+                        <em>
+                            this.
+                        </em>
+
+                    </h2>
+
+                </div>
+
+
+                <p class="section-copy reveal delay-1">
+
+                    The right collaboration does not need
+                    to fit one exact job title.
+
+                    If the work sits somewhere between
+                    creative thinking, content, digital
+                    systems, organization and execution,
+                    there is probably something worth
+                    discussing.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="fit-grid">
+
+
+                <article class="fit-card reveal">
+
+                    <span class="fit-number">
+                        01
+                    </span>
+
+
+                    <h3>
+                        A Brand
+                        Needs Direction
+                    </h3>
+
+
+                    <p>
+                        You have something good and need
+                        help finding the strongest way
+                        to communicate it.
+                    </p>
+
+                </article>
+
+
+
+                <article class="fit-card reveal delay-1">
+
+                    <span class="fit-number">
+                        02
+                    </span>
+
+
+                    <h3>
+                        A Team Needs
+                        Structure
+                    </h3>
+
+
+                    <p>
+                        Too many moving pieces need to
+                        become a workflow people understand
+                        and follow.
+                    </p>
+
+                </article>
+
+
+
+                <article class="fit-card reveal delay-2">
+
+                    <span class="fit-number">
+                        03
+                    </span>
+
+
+                    <h3>
+                        Content Needs
+                        A System
+                    </h3>
+
+
+                    <p>
+                        Ideas exist, but the production,
+                        organization and publishing process
+                        needs more clarity.
+                    </p>
+
+                </article>
+
+
+
+                <article class="fit-card reveal delay-3">
+
+                    <span class="fit-number">
+                        04
+                    </span>
+
+
+                    <h3>
+                        Something Needs
+                        Figuring Out
+                    </h3>
+
+
+                    <p>
+                        There is a problem without a neat
+                        job description yet.
+
+                        Start there.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         MESSAGE FORM
+         FRONTEND BACKBONE
+    ========================================================= -->
+
+    <section class="message-section">
+
+        <div class="container message-grid">
+
+
+            <div class="reveal">
+
+
+                <div class="eyebrow light-eyebrow">
+                    Send A Note
+                </div>
+
+
+                <h2 class="message-title">
+
+                    Tell me what
+                    you are
+                    <em>
+                        building.
+                    </em>
+
+                </h2>
+
+
+                <p class="message-copy">
+
+                    This form is the structural backbone for
+                    the final contact experience.
+
+                    We can later connect it to the preferred
+                    email or form service once the final
+                    workflow is chosen.
+
+                </p>
+
+
+                <div class="message-note">
+
+                    You do not need the perfect brief.
+
+                    Tell me what is happening, what you need,
+                    and where you are trying to go.
+
+                </div>
+
+            </div>
+
+
+
+            <form
+                class="contact-form reveal delay-1"
+                id="contactForm"
+            >
+
+
+                <div class="form-row">
+
+
+                    <div class="field">
+
+                        <label for="name">
+                            Name
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="field">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="field">
+
+                    <label for="company">
+                        Company / Project
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        placeholder="Optional"
+                    >
+
+                </div>
+
+
+
+                <div class="field">
+
+                    <label for="need">
+                        What do you need?
+                    </label>
+
+
+                    <select
+                        id="need"
+                        name="need"
+                    >
+
+                        <option value="">
+                            Choose a starting point
+                        </option>
+
+                        <option>
+                            Brand & Creative Direction
+                        </option>
+
+                        <option>
+                            Social Media Management
+                        </option>
+
+                        <option>
+                            Content Direction
+                        </option>
+
+                        <option>
+                            Video Editing
+                        </option>
+
+                        <option>
+                            Operations & Systems
+                        </option>
+
+                        <option>
+                            Digital Support
+                        </option>
+
+                        <option>
+                            Something Else
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="field">
+
+                    <label for="message">
+                        Message
+                    </label>
+
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Tell me a little about the project, problem or idea."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="form-submit"
+                >
+                    Send Message →
+                </button>
+
+
+                <div
+                    class="form-status"
+                    id="formStatus"
+                    aria-live="polite"
+                ></div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         FINAL NOTE
+    ========================================================= -->
+
+    <section class="final-note">
+
+        <div class="container reveal">
+
+
+            <div
+                class="eyebrow"
+                style="justify-content:center;"
+            >
+                One Last Thing
+            </div>
+
+
+            <h2 class="final-note-title">
+
+                The best work often
+                starts with a simple
+                <span>
+                    conversation.
+                </span>
+
+            </h2>
+
+
+            <p class="final-note-copy">
+
+                No grand introduction required.
+
+                Start with the thing you are trying to solve.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         FOOTER
+         WORK REMOVED
+    ========================================================= -->
+
+    <footer>
+
+
+        <div class="container footer-main">
+
+
+            <div class="footer-brand">
+
+                <a
+                    href="../index.html"
+                    aria-label="Tracy home"
+                >
+
+                    <img
+                        src="../assets/images/primary-emblem.png"
+                        alt="Tracy emblem"
+                    >
+
+                </a>
+
+
+                <div>
+
+                    <div class="footer-name">
+                        TRACY
+                    </div>
+
+
+                    <div class="footer-tagline">
+                        Creative Operations · Digital Systems
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="footer-links">
+
+                <a href="about.html">
+                    About
+                </a>
+
+
+                <a href="experience.html">
+                    Experience
+                </a>
+
+
+                <a href="../index.html#roles">
+                    Roles
+                </a>
+
+
+                <a href="skills.html">
+                    Skills
+                </a>
+
+
+                <a href="credentials.html">
+                    Credentials
+                </a>
+
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="container footer-bottom">
+
+            <span>
+                © 2026 Tracy. All rights reserved.
+            </span>
+
+
+            <span>
+                Open to meaningful work.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         BACK TO TOP
+    ========================================================= -->
+
+    <button
+        class="back-top"
+        id="backTop"
+        type="button"
+        aria-label="Back to top"
+    >
+        ↑
+    </button>
+
+
+</div>
+
+
+
+<script>
+
+(function () {
+
+    "use strict";
+
+
+    /* =========================================================
+       MOBILE NAVIGATION
+    ========================================================= */
+
+    const menuButton =
+        document.getElementById(
+            "menuButton"
+        );
+
+
+    const mobileNav =
+        document.getElementById(
+            "mobileNav"
+        );
+
+
+    if (
+        menuButton
+        &&
+        mobileNav
+    ) {
+
+        menuButton.addEventListener(
+            "click",
+            function () {
+
+                const isOpen =
+                    mobileNav.classList.toggle(
+                        "open"
+                    );
+
+
+                menuButton.classList.toggle(
+                    "active",
+                    isOpen
+                );
+
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+
+                document.body.classList.toggle(
+                    "menu-open",
+                    isOpen
+                );
+
+            }
+        );
+
+
+        mobileNav
+            .querySelectorAll("a")
+            .forEach(
+                function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            mobileNav.classList.remove(
+                                "open"
+                            );
+
+
+                            menuButton.classList.remove(
+                                "active"
+                            );
+
+
+                            menuButton.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+
+                            document.body.classList.remove(
+                                "menu-open"
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+    }
+
+
+    /* =========================================================
+       ESCAPE CLOSE
+    ========================================================= */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape"
+                &&
+                mobileNav
+            ) {
+
+                mobileNav.classList.remove(
+                    "open"
+                );
+
+
+                if (menuButton) {
+
+                    menuButton.classList.remove(
+                        "active"
+                    );
+
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+
+                document.body.classList.remove(
+                    "menu-open"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+    const revealItems =
+        document.querySelectorAll(
+            ".reveal"
+        );
+
+
+    if (
+        "IntersectionObserver"
+        in
+        window
+    ) {
+
+        const observer =
+            new IntersectionObserver(
+                function (
+                    entries,
+                    observerInstance
+                ) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+
+                                observerInstance.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: .10,
+                    rootMargin:
+                        "0px 0px -25px 0px"
+                }
+            );
+
+
+        revealItems.forEach(
+            function (item) {
+
+                observer.observe(
+                    item
+                );
+
+            }
+        );
+
+    } else {
+
+        revealItems.forEach(
+            function (item) {
+
+                item.classList.add(
+                    "visible"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       PLACEHOLDER LINK PROTECTION
+       Prevents empty "#" social links from jumping to top.
+
+       These links become real URLs during final refinement.
+    ========================================================= */
+
+    const placeholderLinks =
+        document.querySelectorAll(
+            ".placeholder-link"
+        );
+
+
+    placeholderLinks.forEach(
+        function (link) {
+
+            link.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        link.getAttribute("href")
+                        ===
+                        "#"
+                    ) {
+
+                        event.preventDefault();
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =========================================================
+       CONTACT FORM BACKBONE
+
+       No external form service is connected yet.
+
+       Until a final email/form provider is selected,
+       submission stays on the page and explains the status.
+    ========================================================= */
+
+    const contactForm =
+        document.getElementById(
+            "contactForm"
+        );
+
+
+    const formStatus =
+        document.getElementById(
+            "formStatus"
+        );
+
+
+    if (
+        contactForm
+        &&
+        formStatus
+    ) {
+
+        contactForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                formStatus.textContent =
+                    "The contact form is ready for its final email or form-service connection.";
+
+
+                contactForm.reset();
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       BACK TO TOP
+    ========================================================= */
+
+    const backTop =
+        document.getElementById(
+            "backTop"
+        );
+
+
+    function updateBackTop() {
+
+        if (
+            window.scrollY > 550
+        ) {
+
+            backTop.classList.add(
+                "visible"
+            );
+
+        } else {
+
+            backTop.classList.remove(
+                "visible"
+            );
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateBackTop,
+        {
+            passive: true
+        }
+    );
+
+
+    updateBackTop();
+
+
+    backTop.addEventListener(
+        "click",
+        function () {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+    );
+
+
+})();
+
+</script>
+
+
+</body>
+
+</html>
